@@ -1,0 +1,797 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MODERATION TEAM HANDBOOK</title>
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #34495e;
+            --accent-color: #3498db;
+            --success-color: #2ecc71;
+            --warning-color: #f1c40f;
+            --danger-color: #e74c3c;
+            --text-color: #2c3e50;
+            --light-bg: rgba(255, 255, 255, 0.3);
+            --card-bg: rgba(255, 255, 255, 0.2);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-image: url('https://i.postimg.cc/90W6hqWw/Community-Staff.webp');
+            background-size: 40%;
+            background-repeat: no-repeat;
+            background-position: center;
+            background-attachment: fixed;
+            background-blend-mode: multiply;
+            background-color: var(--primary-color);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+            background: var(--light-bg);
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 3rem;
+            padding: 2rem;
+            background: var(--card-bg);
+            border-radius: 16px;
+            backdrop-filter: blur(12px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        header h1 {
+            font-size: 2.8rem;
+            color: var(--text-color);
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, var(--accent-color), var(--primary-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+            background-clip: text;
+        }
+
+        header p {
+            color: var(--text-color);
+            margin-bottom: 0.5rem;
+        }
+
+        nav {
+            background: var(--card-bg);
+            padding: 1.5rem;
+            border-radius: 16px;
+            margin-bottom: 2rem;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(10px);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-color);
+            font-weight: 500;
+            transition: all 0.3s ease;
+            padding: 0.75rem 1.5rem;
+            border-radius: 8px;
+            backdrop-filter: blur(6px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            background: rgba(255, 255, 255, 0.3);
+        }
+
+        .nav-links a:hover {
+            color: var(--accent-color);
+            background: rgba(52, 152, 219, 0.3);
+            border: 1px solid var(--accent-color);
+            transform: translateY(-2px);
+        }
+
+        .content-section {
+            margin-bottom: 3rem;
+            padding: 2.5rem;
+            background: var(--card-bg);
+            border-radius: 16px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(10px);
+            transition: transform 0.3s ease;
+        }
+
+        .content-section h2 {
+            color: var(--text-color);
+            margin-bottom: 1.5rem;
+            border-bottom: 3px solid var(--accent-color);
+            padding-bottom: 0.75rem;
+            font-size: 1.8rem;
+        }
+
+        .commands {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .command {
+            background: var(--light-bg);
+            padding: 2rem;
+            border-radius: 12px;
+            border-left: 6px solid var(--accent-color);
+            backdrop-filter: blur(8px);
+            transition: all 0.3s ease;
+        }
+
+        .command:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .command code {
+            background: var(--accent-color);
+            color: var(--card-bg);
+            padding: 0.75rem 1.5rem;
+            border-radius: 8px;
+            font-size: 1.2rem;
+            display: inline-block;
+            margin-bottom: 1rem;
+            font-weight: 500;
+        }
+
+        .command ul {
+            margin-top: 1rem;
+            padding-left: 1.5rem;
+        }
+
+        .command ul li {
+            margin-bottom: 0.75rem;
+            font-size: 1.1rem;
+            color: var(--text-color);
+        }
+
+        .note {
+            color: var(--text-color);
+            font-style: italic;
+            padding: 1rem;
+            background: rgba(241, 196, 15, 0.3);
+            border-radius: 8px;
+            margin-top: 1.5rem;
+            font-size: 1.1rem;
+            border: 1px solid rgba(241, 196, 15, 0.4);
+        }
+
+        .severity-levels {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .severity-level {
+            padding: 2rem;
+            border-radius: 12px;
+            background: var(--light-bg);
+            backdrop-filter: blur(8px);
+            transition: all 0.3s ease;
+            border-left: 6px solid var(--accent-color);
+        }
+
+        .severity-level:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .severity-level h3 {
+            color: var(--text-color);
+            margin-bottom: 1.5rem;
+            font-size: 1.5rem;
+        }
+
+        .severity-level ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .severity-level ul li {
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+            padding-left: 1.5rem;
+            position: relative;
+            color: var(--text-color);
+        }
+
+        .severity-level ul li:before {
+            content: "•";
+            color: var(--accent-color);
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+        }
+
+        .responsibilities-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .responsibility-card {
+            background: var(--light-bg);
+            padding: 2rem;
+            border-radius: 12px;
+            border: 2px solid var(--secondary-color);
+            backdrop-filter: blur(8px);
+            transition: all 0.3s ease;
+        }
+
+        .responsibility-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            border-color: var(--accent-color);
+        }
+
+        .responsibility-card h3 {
+            color: var(--text-color);
+            margin-bottom: 1.5rem;
+            font-size: 1.5rem;
+        }
+
+        .responsibility-card ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .responsibility-card ul li {
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+            padding-left: 1.5rem;
+            position: relative;
+            color: var(--text-color);
+        }
+
+        .responsibility-card ul li:before {
+            content: "•";
+            color: var(--accent-color);
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 2rem;
+            padding: 2rem;
+            background: var(--primary-color);
+            border-radius: 8px;
+            backdrop-filter: blur(12px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .watermark {
+            color: var(--accent-color);
+            font-size: 1rem;
+            opacity: 0.9;
+            transition: all 0.3s ease;
+            display: inline-block;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            background: rgba(52, 152, 219, 0.3);
+        }
+
+        .watermark:hover {
+            opacity: 1;
+            background: rgba(52, 152, 219, 0.4);
+            transform: translateY(-2px);
+        }
+
+        .watermark a {
+            color: var(--accent-color);
+            text-decoration: none;
+        }
+
+        .watermark a:hover {
+            color: var(--text-color);
+            text-decoration: underline;
+        }
+
+        @media (max-width: 1200px) {
+            .container {
+                padding: 1.5rem;
+            }
+
+            .nav-links {
+                gap: 1.5rem;
+            }
+
+            .content-section {
+                padding: 2rem;
+            }
+
+            .commands {
+                grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            }
+
+            .severity-levels {
+                grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            }
+
+            .responsibilities-grid {
+                grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            }
+        }
+
+        @media (max-width: 992px) {
+            .container {
+                padding: 1rem;
+            }
+
+            .nav-links {
+                gap: 1rem;
+            }
+
+            .content-section {
+                padding: 1.5rem;
+            }
+
+            .commands {
+                grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            }
+
+            .severity-levels {
+                grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            }
+
+            .responsibilities-grid {
+                grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                flex-direction: column;
+                align-items: center;
+                gap: 0.75rem;
+            }
+
+            .nav-links a {
+                width: 100%;
+                text-align: center;
+                padding: 0.75rem;
+            }
+
+            .content-section {
+                padding: 1.25rem;
+            }
+
+            .commands {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .command {
+                padding: 1.5rem;
+            }
+
+            .command code {
+                font-size: 1.1rem;
+            }
+
+            .severity-levels {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .severity-level {
+                padding: 1.5rem;
+            }
+
+            .responsibilities-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .responsibility-card {
+                padding: 1.5rem;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .container {
+                padding: 0.75rem;
+            }
+
+            .nav-links {
+                gap: 0.5rem;
+            }
+
+            .nav-links a {
+                padding: 0.5rem;
+                font-size: 0.9rem;
+            }
+
+            .content-section {
+                padding: 1rem;
+            }
+
+            .command {
+                padding: 1rem;
+            }
+
+            .command code {
+                font-size: 1rem;
+                padding: 0.5rem 1rem;
+            }
+
+            .severity-level {
+                padding: 1rem;
+            }
+
+            .responsibility-card {
+                padding: 1rem;
+            }
+
+            .watermark {
+                font-size: 0.9rem;
+                padding: 0.4rem 0.8rem;
+            }
+        }
+
+        /* Touch Device Optimizations */
+        @media (hover: none) {
+            .nav-links a {
+                padding: 1rem;
+            }
+
+            .command {
+                padding: 1.5rem;
+            }
+
+            .severity-level {
+                padding: 1.5rem;
+            }
+
+            .responsibility-card {
+                padding: 1.5rem;
+            }
+        }
+
+        /* Print Styles */
+        @media print {
+            body {
+                background: none !important;
+                background-color: white !important;
+            }
+
+            .container {
+                box-shadow: none;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .content-section {
+                box-shadow: none;
+                border: 1px solid #ddd;
+            }
+
+            .command {
+                border: 1px solid #ddd;
+            }
+
+            .severity-level {
+                border: 1px solid #ddd;
+            }
+
+            .responsibility-card {
+                border: 1px solid #ddd;
+            }
+
+            .watermark {
+                display: none;
+            }
+        }
+
+        /* High DPI Screens */
+        @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+            body {
+                background-size: 20%;
+            }
+
+            .command code {
+                font-size: 1.3rem;
+            }
+
+            .severity-level h3 {
+                font-size: 1.6rem;
+            }
+
+            .responsibility-card h3 {
+                font-size: 1.6rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>MODERATION TEAM HANDBOOK</h1>
+            <p>Administered under the Advice of the Department of Defense</p>
+            <p>Date: April 4, 2025</p>
+            <p>To: Moderation Team</p>
+            <p>From: Moderation Staff</p>
+        
+        </header>
+
+        <nav>
+            <ul class="nav-links">
+                <li><a href="#moderation-tools">Moderation Tools</a></li>
+                <li><a href="#server-rules">Server Rules</a></li>
+                <li><a href="#team-quota">Team Quota</a></li>
+                <li><a href="#responsibilities">Responsibilities</a></li>
+                <li><a href="#conduct">Conduct</a></li>
+                <li><a href="#public-engagement">Public Engagement</a></li>
+                <li><a href="#moderation-logs">Moderation Logs</a></li>
+                <li><a href="#voice-policies">Voice Policies</a></li>
+                <li><a href="#underaged">Underaged Users</a></li>
+                <li><a href="#raids">Raids & Admin Abuse</a></li>
+                <li><a href="#additional">Additional Guidelines</a></li>
+                <li><a href="#watchlist">Watchlist</a></li>
+            </ul>
+        </nav>
+
+        <main>
+            <section id="moderation-tools" class="content-section">
+                <h2>Section 1 — Moderation Tools</h2>
+                <div class="dyno-section">
+                    <h3>Dyno Bot</h3>
+                    <p>Dyno is a primary Discord bot used for various moderation purposes. The United States Air Force Discord utilizes Dyno for managing rule violations.</p>
+                    <div class="commands">
+                        <div class="command">
+                            <code>.warn</code>
+                            <p>Records a rule violation. Must include a clear reason.</p>
+                            <ul>
+                                <li>2 warnings = 6-hour mute</li>
+                                <li>4 warnings = 24-hour mute</li>
+                                <li>5 warnings = 3-day server ban</li>
+                                <li>8 warnings = Permanent server ban (appealable)</li>
+                            
+                        </div>
+                        <div class="command">
+                            <code>.mute</code>
+                            <p>Temporarily restricts a member from speaking.</p>
+                            <p class="note">Mutes should be used for rule violations that don't warrant a ban but need immediate action.</p>
+                        </div>
+                        <div class="command">
+                            <code>.kick</code>
+                            <p>Temporarily removes a member. Must include a reason and warning message.</p>
+                            <p class="note">Kicks should be used for repeated offenses or when immediate removal is necessary.</p>
+                        </div>
+                        <div class="command">
+                            <code>.ban</code>
+                            <p>Permanently removes a member for severe violations. Must include a reason and appeal server link.</p>
+                            <p class="note">Only Senior Moderators or higher may use this command. Bans require approval from at least one other senior staff member.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="server-rules" class="content-section">
+                <h2>Section 2 — Server Rules</h2>
+                <div class="severity-levels">
+                    <div class="severity-level low">
+                        <h3>Low Severity Offenses</h3>
+                        <ul>
+                            <li>PG-Friendly Content: Mild profanity or suggestive language → Warning</li>
+                            <li>Correct Channel Usage: Off-topic discussions → Warning</li>
+                            <li>Argument Ignition: Heated discussions → Warning + 2-hour mute</li>
+                        </ul>
+                        <p class="note">Low severity offenses are typically addressed with warnings and educational messages.</p>
+                    </div>
+
+                    <div class="severity-level medium">
+                        <h3>Medium Severity Offenses</h3>
+                        <ul>
+                            <li>Spamming / Mass Pinging → Warning + 1-hour mute</li>
+                            <li>Voice Chat Abuse → Warning + 1-hour mute if repeated</li>
+                            <li>Advertising → 3-day ban (repeat = permanent ban)</li>
+                        </ul>
+                        <p class="note">Medium severity offenses require immediate action and documentation in moderation logs.</p>
+                    </div>
+
+                    <div class="severity-level high">
+                        <h3>High Severity Offenses</h3>
+                        <ul>
+                            <li>Doxing / Harassment → Permanent Ban</li>
+                            <li>NSFW Content → Permanent Ban</li>
+                            <li>Treason Against USAF → Permanent Ban</li>
+                        </ul>
+                        <p class="note">High severity offenses require immediate reporting to senior staff and potential legal action.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section id="team-quota" class="content-section">
+                <h2>Section 3 — Moderation Team Quota</h2>
+                <div class="responsibilities-grid">
+                    <div class="responsibility-card">
+                        <h3>Moderators</h3>
+                        <ul>
+                            <li>3 valid moderation logs OR 200 messages every 2 weeks</li>
+                            <li>Must maintain active participation in server activities</li>
+                            <li>Required to attend monthly training sessions</li>
+                        </ul>
+                    </div>
+                    <div class="responsibility-card">
+                        <h3>Senior Moderators</h3>
+                        <ul>
+                            <li>2 valid moderation logs OR 100 messages every 2 weeks</li>
+                            <li>Must lead at least one training session per quarter</li>
+                            <li>Required to review and approve ban requests</li>
+                        </ul>
+                    </div>
+                    <div class="responsibility-card">
+                        <h3>Community Staff Members</h3>
+                        <ul>
+                            <li>1 QOTD every 2 weeks OR 2 events every 2 weeks</li>
+                            <li>Required to maintain positive community engagement</li>
+                            <li>Must attend bi-weekly staff meetings</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <section id="responsibilities" class="content-section">
+                <h2>Section 4 — Responsibilities of Each Moderation Rank</h2>
+                <div class="responsibilities-grid">
+                    <div class="responsibility-card">
+                        <h3>Moderators</h3>
+                        <ul>
+                            <li>Enforce rules, issue warnings/mutes/bans</li>
+                            <li>Log all actions</li>
+                            <li>Assist users with server rules</li>
+                        </ul>
+                    </div>
+                    <div class="responsibility-card">
+                        <h3>Senior Moderators</h3>
+                        <ul>
+                            <li>Perform all Moderator duties</li>
+                            <li>Handle serious offenses</li>
+                            <li>Oversee Moderation Watchlist</li>
+                        </ul>
+                    </div>
+                    <div class="responsibility-card">
+                        <h3>Community Staff Members</h3>
+                        <ul>
+                            <li>Engage with the community</li>
+                            <li>Host QOTDs & events</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <section id="conduct" class="content-section">
+                <h2>Section 5 — Conduct and Expectations</h2>
+                <ul>
+                    <li>Maintain professionalism and confidentiality</li>
+                    <li>Enforce rules fairly and consistently</li>
+                    <li>Respect the Chain of Command</li>
+                </ul>
+            </section>
+
+            <section id="public-engagement" class="content-section">
+                <h2>Section 6 — Public Engagement Guidelines</h2>
+                <ul>
+                    <li>Use a neutral and respectful tone when addressing disputes</li>
+                    <li>Avoid public arguments; escalate issues properly</li>
+                    <li>Do not discuss internal moderation decisions publicly</li>
+                </ul>
+            </section>
+
+            <section id="moderation-logs" class="content-section">
+                <h2>Section 7 — Moderation Logs</h2>
+                <ul>
+                    <li>Username and Discord ID</li>
+                    <li>Rule broken</li>
+                    <li>Action taken</li>
+                    <li>Moderator's name</li>
+                </ul>
+            </section>
+
+            <section id="voice-policies" class="content-section">
+                <h2>Section 8 — Voice Channel Policies</h2>
+                <ul>
+                    <li>Enforce rules to prevent disruption</li>
+                    <li>Only join private VCs when responding to reports</li>
+                    <li>Record VC activity if dealing with serious cases</li>
+                </ul>
+            </section>
+
+            <section id="underaged" class="content-section">
+                <h2>Section 9 — Underaged User Policies</h2>
+                <ul>
+                    <li>Immediately report users suspected to be under 13</li>
+                    <li>Enforce Discord Terms of Service without exception</li>
+                </ul>
+            </section>
+
+            <section id="raids" class="content-section">
+                <h2>Section 10 — Raids & Admin Abuse</h2>
+                <div class="responsibilities-grid">
+                    <div class="responsibility-card">
+                        <h3>Raids</h3>
+                        <ul>
+                            <li>Mute or ban involved users</li>
+                            <li>Notify upper staff</li>
+                            <li>Document actions</li>
+                        </ul>
+                    </div>
+                    <div class="responsibility-card">
+                        <h3>Admin Abuse</h3>
+                        <ul>
+                            <li>Collect and document evidence</li>
+                            <li>Report to the highest-ranking available staff</li>
+                            <li>Maintain professionalism</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <section id="additional" class="content-section">
+                <h2>Section 11 — Additional Guidelines</h2>
+                <ul>
+                    <li>Confidentiality: Keep all moderation matters private</li>
+                    <li>Escalation: Consult Senior Moderators or Admins when unsure</li>
+                    <li>Training: Attend required training sessions</li>
+                </ul>
+            </section>
+
+            <section id="watchlist" class="content-section">
+                <h2>Section 12 — Moderation Team Watchlist</h2>
+                <p>This channel is for Senior Moderators and Operational Managers to monitor individuals of concern.</p>
+                <div class="responsibility-card">
+                    <h3>Entry Format</h3>
+                    <ul>
+                        <li>Name: [User's Tag]</li>
+                        <li>Discord ID: [User's Discord ID]</li>
+                        <li>Reason: [Explanation]</li>
+                        <li>Duration: [Start & End Dates]</li>
+                        <li>Ping: @Moderation Team</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section id="closing-statement" class="content-section">
+                <h2>Closing Statement</h2>
+                <p>Your commitment ensures the safety, professionalism, and structure of the United States Air Force Discord community.</p>
+                <p>Signed,<br>Moderation Staff</p>
+            </section>
+        </main>
+
+        <footer>
+            <p class="watermark">
+                <a href="https://rast0fx.github.io/PotrfolioV1/" target="_blank">Made by Mhamad Koussa (rast0fx)</a>
+            </p>
+        </footer>
+    </div>
+</body>
+</html>
